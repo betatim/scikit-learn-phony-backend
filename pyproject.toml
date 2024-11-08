@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project.entry-points.sklearn_backends]
+# This entrypoint points to a namespace that contains two functions.
+# The `get_implementation` function is how implementations are located by the
+# dispatching mechanism.
+# The `can_has` function is used by the dispatching mechanism to find a
+# suitable backend by querying each in turn.
+# Ideally importing this entrypoint does not trigger expensive
+# imports or setup costs. Delay them until the backend has been
+# selected/when `get_implementation` is called
+phony = "sklearn_phony_backend.implementations"
+
+
+[project]
+name = "scikit-learn-phony-backend"
+version = "0.0.1"
