@@ -1,6 +1,7 @@
 import numpy as np
 from sklearn.utils.validation import check_random_state
 
+
 class KMeans:
     def __init__(self, estimator):
         self.estimator = estimator
